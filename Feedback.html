@@ -1,0 +1,54 @@
+
+<html>
+<head>
+<title>Write the Post..</title>
+<link href="styles/global_feedback.css" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale: 1.0, user-scalable=0" />
+<script src="scripts/jquery-3.2.1.min.js"></script>
+<script src="scripts/general.js"></script>
+</head>
+
+<body>
+
+	<div id="header">
+		<img class="sidelogo" src="images/info.png" width= "50px" height="50px">
+		<div class="logo"><a href="#">Notice<span><strong>Board</strong></span></a></div>
+		<div class="exit"><a href="javascript:window.open('','_self').close();"><img src="images/exit.png"></a></div>
+	</div>
+
+	<a class="mobile" href="#">&nbsp;MENU</a>
+	<a class="time" id="clock">HH:MM:SS</a>	
+
+	<div id="container">
+		<div class="sidebar">
+		<ul id="nav">
+			<li><a href="Dashboard.html">Dashboard</a></li>
+			<li><a href="Write.html">Write</a></li>
+			<li><a href="Search.html">Search</a></li>
+			<li><a href="Feedback.html">Feedback</a></li>
+			<li><a href="#">Help</a></li>
+		</ul>
+		</div>
+		<div class="content">
+		<br>
+		<h1>&nbsp;&nbsp;&nbsp;Write the Feedback...</h1>
+		<div id="box">
+	<div id="form">
+	  <form action="/action_page_feedback.php" id="usrform">
+	    	<br>
+	    <div class="box-msg"><label for="text">&nbsp;&nbsp;Feedback</label>
+	    </div>
+	    <textarea rows="5" cols="60" id="message" name="comment" form="usrform" placeholder="Enter Feedback here..."></textarea>
+	    	<br>
+	  	<div class="box-name" id="name"><label for="name">&nbsp;&nbsp;Name</label>
+	  	</div>
+    	<input type="text" id="name" name="name" placeholder="Your name..">
+    		<br><br>&nbsp;
+	    <input type="submit" value="Submit">
+	  </form>
+	</div>
+		</div>
+
+
+</body>
+</html>
