@@ -1,8 +1,8 @@
 
 <html>
 <head>
-<title>Write the Post..</title>
-<link href="styles/global_write.css" rel="stylesheet" type="text/css"/>
+<title>Home</title>
+<link href="styles/global_search.css" rel="stylesheet" type="text/css"/>
 <meta name="viewport" content="width=device-width, initial-scale: 1.0, user-scalable=0" />
 <script src="scripts/jquery-3.2.1.min.js"></script>
 <script src="scripts/general.js"></script>
@@ -18,7 +18,6 @@
 
 	<a class="mobile" href="#">&nbsp;MENU</a>
 	<a class="time" id="clock">HH:MM:SS</a>
-	
 
 	<div id="container">
 		<div class="sidebar">
@@ -31,28 +30,40 @@
 		</ul>
 		</div>
 		<div class="content">
-		<br>
-		<h1>&nbsp;&nbsp;&nbsp;Write the Information...</h1>
-		<div id="box">
-	<div id="form">
-	  <form action="action.php" id="usrform" method="POST">
-	    <div class="box-tit" id="title"><label for="title">&nbsp;&nbsp;Title of Info</label>
-	    </div>
-	    <input type="text" id="tname" name="title" placeholder="Title..">
-	    	<br>
-	    <div class="box-msg"><label for="text">&nbsp;&nbsp;Message</label>
-	    </div>
-	    <textarea rows="4" cols="50" id="message" name="comment" form="usrform" placeholder="Enter Message here..."></textarea>
-	    	<br>
-	  	<div class="box-name" id="name"><label for="name">&nbsp;&nbsp;Name</label>
-	  	</div>
-    	<input type="text" id="name" name="name" placeholder="Your name..">
-    		<br><br>&nbsp;
-	    <input type="submit" value="Submit">
-	  </form>
-	</div>
-		</div>
+		<h1>Search</h1>
+		<p> &nbsp;&nbsp;&nbsp;Enter Terms....</p>
 
+		<?php
+		$query = $_POST['query'];
+		$con=mysql_connect("localhost","noticeboard_db","singham2")
+        or die("Cannot Connect to the MySQL server");
+
+        mysql_select_db("noticeboard_db")
+		or die("Can't connect to the specified database");
+		$results=mysql_query("SELECT * FROM nb_write")
+		or die("Can't Connect to the specified Table");
+			while($row = mysql_fetch_array($results)) 
+			{
+				$title=$row['title'];
+  				$msg=$row['message'];
+  				$name=$row['name'];
+			if(stripos($msg, $query)==true)
+			{
+			echo "<div id=\"box\">
+			<div class=\"box-top\">".$title."</div>
+			<div class=\"box-panel\">".$msg."<br><br>".$name."
+			</div>
+			</div>";
+			}
+			}
+			mysql_close($con);
+			?>
+		
+
+
+
+		</div>
+	</div>
 
 </body>
 </html>

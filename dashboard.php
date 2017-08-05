@@ -8,7 +8,7 @@
 <script src="scripts/general.js"></script>
 </head>
 
-<body style="color: #000000">
+<body>
 
 	<div id="header">
 		<img class="sidelogo" src="images/info.png">
@@ -31,6 +31,35 @@
 		</ul>
 		</div>
 		<div class="content">
- <h1> "God helps those who help themselves." </h1>
+		<h1>Dashboard</h1>
+		<p> &nbsp;&nbsp;&nbsp;What do we have for you....</p>
+
+		<?php
+		$con=mysql_connect("localhost","noticeboard_db","singham2")
+        or die("Cannot Connect to the MySQL server");
+
+        mysql_select_db("noticeboard_db")
+		or die("Can't connect to the specified database");
+		$results=mysql_query("SELECT * FROM nb_write")
+		or die("Can't Connect to the specified Table");
+			while($row = mysql_fetch_array($results)) 
+			{
+				$title=$row['title'];
+  				$msg=$row['message'];
+  				$name=$row['name'];
+		echo "<div id=\"box\">
+			<div class=\"box-top\">".$title."</div>
+			<div class=\"box-panel\">".$msg."<br><br>".$name."
+			</div>
+			</div>";
+			}
+			mysql_close($con);
+			?>
+
+
+
+		</div>
+	</div>
+
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Write the Post..</title>
-<link href="styles/global_feedback.css" rel="stylesheet" type="text/css"/>
+<link href="styles/global_search1.css" rel="stylesheet" type="text/css"/>
 <meta name="viewport" content="width=device-width, initial-scale: 1.0, user-scalable=0" />
 <script src="scripts/jquery-3.2.1.min.js"></script>
 <script src="scripts/general.js"></script>
@@ -17,7 +17,8 @@
 	</div>
 
 	<a class="mobile" href="#">&nbsp;MENU</a>
-	<a class="time" id="clock">HH:MM:SS</a>	
+	<a class="time" id="clock">HH:MM:SS</a>
+	
 
 	<div id="container">
 		<div class="sidebar">
@@ -31,20 +32,16 @@
 		</div>
 		<div class="content">
 		<br>
-		<h1>&nbsp;&nbsp;&nbsp;Write the Feedback...</h1>
+		<h1>&nbsp;&nbsp;&nbsp;Write the Information...</h1>
 		<div id="box">
 	<div id="form">
-	  <form action="/action_page_feedback.php" id="usrform">
-	    	<br>
-	    <div class="box-msg"><label for="text">&nbsp;&nbsp;Feedback</label>
-	    </div>
-	    <textarea rows="5" cols="60" id="message" name="comment" form="usrform" placeholder="Enter Feedback here..."></textarea>
-	    	<br>
-	  	<div class="box-name" id="name"><label for="name">&nbsp;&nbsp;Name</label>
+	  <form action="search.php" id="usrform" method="POST">
+	    
+	  	<div class="box-name" id="name"><label for="name">&nbsp;&nbsp;Search</label>
 	  	</div>
-    	<input type="text" id="name" name="name" placeholder="Your name..">
+    	<input type="text" id="name" name="query" placeholder="Type Term to Search..">
     		<br><br>&nbsp;
-	    <input type="submit" value="Submit">
+	    <input type="submit" value="Search">
 	  </form>
 	</div>
 		</div>
